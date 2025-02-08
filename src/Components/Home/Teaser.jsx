@@ -1,0 +1,62 @@
+
+
+
+import React, { useState, useEffect } from 'react';
+
+const V3TeaserSection = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const targetDate = new Date('2023-12-31T00:00:00').getTime(); // Set your target date here
+
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        setTimeLeft({ days, hours, minutes, seconds });
+      } else {
+        clearInterval(interval);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section className="bg-blue-600 text-white py-16">
+      <div className="container mx-auto px-6 text-center">
+        <h2 className="text-3xl font-bold mb-4">DevMeetup V3 is Coming Soon!</h2>
+        <div className="flex justify-center space-x-4 mb-8">
+          <div className="bg-white text-blue-600 px-6 py-2 rounded-lg">
+            <span className="text-2xl font-bold">{timeLeft.days}</span> Days
+          </div>
+          <div className="bg-white text-blue-600 px-6 py-2 rounded-lg">
+            <span className="text-2xl font-bold">{timeLeft.hours}</span> Hours
+          </div>
+          <div className="bg-white text-blue-600 px-6 py-2 rounded-lg">
+            <span className="text-2xl font-bold">{timeLeft.minutes}</span> Minutes
+          </div>
+          <div className="bg-white text-blue-600 px-6 py-2 rounded-lg">
+            <span className="text-2xl font-bold">{timeLeft.seconds}</span> Seconds
+          </div>
+        </div>
+        <a href="/v3" className="bg-white text-blue-500 px-8 py-3 rounded-lg hover:bg-gray-100">
+          Join V3
+        </a>
+      </div>
+    </section>
+  );
+};
+
+export default V3TeaserSection;

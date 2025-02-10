@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const V3TeaserSection = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -48,9 +49,9 @@ const V3TeaserSection = () => {
             <span className="text-2xl font-bold">{timeLeft.seconds}</span> Seconds
           </div>
         </div>
-        <a href="/v3" className="bg-white text-blue-500 px-8 py-3 rounded-lg hover:bg-gray-100 transition duration-300">
+        <Link to="/event3" className="bg-white text-blue-500 px-8 py-3 rounded-lg hover:bg-gray-100 transition duration-300">
           Join V3
-        </a>
+        </Link>
       </div>
     </section>
   );

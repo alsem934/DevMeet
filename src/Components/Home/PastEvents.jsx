@@ -1,8 +1,22 @@
+
+
+
+
+
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+
+
+
+
+
 
 const PastEventsSection = () => {
   return (
-    <section className="py-10 text-gray-800 relative">
+    <section className="py-10 text-gray-800 relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+
+
       <div className="max-w-7xl mx-auto px-6 pb-20">
         <h2 className="text-3xl font-bold text-center mb-6 md:text-4xl lg:text-5xl">Past Events</h2>
         
@@ -28,20 +42,20 @@ const PastEventsSection = () => {
             <p className="text-gray-600 mb-3">
               The second edition brought even more energy with workshops, networking, and live coding sessions.
             </p>
-            <a 
-              href="/event2" 
+            <Link
+              to="/event2" 
               className="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-300"
             >
               Go to Event 2
-            </a>
+            </Link>
           </div>
         </div>
       </div>
 
       {/* Optional decorative element */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-10">
+      {/* <div className="absolute top-0 left-0 w-full h-full opacity-10"> */}
         {/* SVG or any other decorative element can be added here */}
-      </div>
+      {/* </div> */}
     </section>
   );
 };

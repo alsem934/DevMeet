@@ -6,6 +6,7 @@ import Event2 from './Components/Event2/Event2'
 import Event3 from './Components/Event3/Event3'
 import Chat from './Components/Chat'
 import LiveUpdates from './Components/LiveUpdates'
+import PastEventsPage from './Components/PastEventImage'
 function App() {
   return (
    
@@ -18,6 +19,7 @@ function App() {
    <Route path="/event3" element={<Event3/>}/>
    <Route path="/chat" element={<Chat/>}/>
    <Route path="/liveupdates" element={<LiveUpdates/>}/>
+   <Route path="/past-events" element={<PastEventsPage/>}/>
      
       </Routes>
      

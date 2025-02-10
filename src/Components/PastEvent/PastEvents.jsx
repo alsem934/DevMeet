@@ -14,7 +14,7 @@ const PastEvents = () => {
       title: "React Summit 2024",
       date: "November 15, 2024",
       description: "Join experts and developers to discuss the latest in React.",
-      image:"/image/photo_2025-02-05_21-20-35.jpg ",
+      image:"file:///C:/Users/user/Downloads/573A3660.JPG ",
       link: "#",
     },
     {    

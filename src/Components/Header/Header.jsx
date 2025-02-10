@@ -6,6 +6,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars as Menu, FaTimes as X } from 'react-icons/fa';
+import { FaRegCommentDots } from "react-icons/fa";
+
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +28,7 @@ const Header = () => {
           <Link to="/ " className="text-gray-700 hover:text-blue-600">Home</Link>
           <Link to="/Event1 " className="text-gray-700 hover:text-blue-600">Event 1</Link>
           <Link to="/event2" className="text-gray-700 hover:text-blue-600">Event 2</Link>
-          <Link to="/event3" className="text-gray-700 hover:text-blue-600">Event 3</Link>
+          <Link to="/event3" className="text-gray-700 hover:text-blue-600">Event 3</Link>  
         </nav>
       </div>
 

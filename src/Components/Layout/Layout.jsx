@@ -4,14 +4,13 @@
 import React from 'react'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer';
-function LayOut({children}) {
+function LayOut({children,hideFooter}) {
   return (
 <div>
     <Header/>
     {children}
-    <Footer/>
+    {!hideFooter && <Footer />}
 </div>
   )
 }
-
-export default LayOut;
+export default LayOut

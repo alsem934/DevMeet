@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp, query, orderBy } from 'firebase/firestore';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import ClipLoader from "react-spinners/ClipLoader";
+
 
 // Firebase configuration
 const firebaseConfig = {
@@ -24,18 +26,29 @@ const Chat = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [signInLoading, setSignInLoading] = useState(false);
+  const [registerLoading, setRegisterLoading] = useState(false);
+  
 
   const signInWithEmail = async () => {
+    setSignInLoading(true);//loading spinner
+    setError('');
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
       setUser(result.user);
       setError('');
     } catch (error) {
+      if (error.code === 'auth/user-not-found') {
+        setError('No user found with this email address.')
+      }
       setError('Error signing in: ' + error.message);
+    } finally{
+      setSignInLoading(false) //stopper loading spinner
     }
   };
 
   const registerWithEmail = async () => {
+    setRegisterLoading(true);//loading spinner
     try {
       const result = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(result.user, { displayName: email.split('@')[0] });
@@ -43,6 +56,8 @@ const Chat = () => {
       setError('');
     } catch (error) {
       setError('Error registering: ' + error.message);
+    } finally{
+      setRegisterLoading(false); //stopper loading spinner
     }
   };
 
@@ -77,12 +92,26 @@ const Chat = () => {
       <main className="flex-grow p-6 overflow-y-auto flex flex-col items-center">
         {!user ? (
           <div className="max-w-md w-full bg-gray-800 p-6 rounded-lg shadow-lg mt-0">
-            <p className="text-gray-400 mb-4">Sign in or register to start chatting.</p>
+            <p className="text-gray-400 mb-4">register to start chatting.</p>
             {error && <p className="text-red-400 mb-4">{error}</p>}
             <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="mb-2 p-2 w-full bg-gray-700 text-white rounded" />
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" className="mb-2 p-2 w-full bg-gray-700 text-white rounded" />
-            <button onClick={signInWithEmail} className="bg-blue-600 w-full py-2 rounded-lg hover:bg-blue-700 mb-2">Sign in</button>
-            <button onClick={registerWithEmail} className="bg-green-600 w-full py-2 rounded-lg hover:bg-green-700">Register</button>
+            <button 
+  onClick={signInWithEmail} 
+  className="bg-blue-600 w-full py-2 rounded-lg hover:bg-blue-700 mb-2 flex justify-center items-center"
+  disabled={signInLoading}
+>
+  {signInLoading ? <ClipLoader size={20} color="#ffffff" /> : "Sign in"}
+</button>
+           
+<button 
+  onClick={registerWithEmail} 
+  className="bg-green-600 w-full py-2 rounded-lg hover:bg-green-700 flex justify-center items-center"
+  disabled={registerLoading}
+>
+  {registerLoading ? <ClipLoader size={20} color="#ffffff" /> : "Register"}
+</button>
+
           </div>
         ) : (
           <div className="flex flex-col-reverse gap-4 overflow-auto max-h-[80vh] w-full max-w-full">

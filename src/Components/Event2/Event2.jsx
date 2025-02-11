@@ -45,14 +45,13 @@ function Event2() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                   <div className="relative bg-white bg-opacity-10 backdrop-blur-lg shadow-lg rounded-lg p-8 text-center transform hover:scale-105 transition">
                     <img src={chappi} alt="Organizer 1" className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-white" />
-                    <h3 className="text-xl font-bold mb-1">John Doe</h3>
-                    <p className="text-gray-300">Frontend Developer</p>
+                    <h3 className="text-xl font-bold mb-1 text-black">Temkin Mengestu</h3>
+                    <p className="text-black animate-pulse">Senior Back-end Developer</p>
                   </div>
                   <div className="relative bg-white bg-opacity-10 backdrop-blur-lg shadow-lg rounded-lg p-8 text-center transform hover:scale-105 transition">
                     <img src={yeab} alt="Organizer 2" className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-white" />
-                    <h3 className="text-xl font-bold mb-1">Jane Smith</h3>
-                    <p className="text-gray-300">Backend Developer</p>
-                  </div>
+                    <h3 className="text-xl font-bold mb-1 text-black">Yeabsra</h3>
+                    <p className="text-black animate-pulse">Flutter Developer</p>                  </div>
                 </div>
               </section>
 
@@ -85,7 +84,8 @@ function Event2() {
       </section>
     
       
-      <EventSections/>
+      <EventSections venue={"Haya Hulet Mazoria, City Point, Addis Ababa"}
+      date={"3"}/>
     </div>
     </LayOut>
   )

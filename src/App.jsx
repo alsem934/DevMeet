@@ -20,6 +20,7 @@ function App() {
    <Route path="/chat" element={<Chat/>}/>
    <Route path="/liveupdates" element={<LiveUpdates/>}/>
    <Route path="/past-events" element={<PastEventsPage/>}/>
+   
      
       </Routes>
      

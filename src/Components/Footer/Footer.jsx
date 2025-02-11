@@ -38,7 +38,7 @@ const Footer = () => {
           </div>
 
           {/* Newsletter Section */}
-          <div>
+          {/* <div>
             <h3 className="text-xl font-bold mb-4">Subscribe to Our Newsletter</h3>
             <form className="flex">
               <input 
@@ -53,7 +53,7 @@ const Footer = () => {
                 Subscribe
               </button>
             </form>
-          </div>
+          </div> */}
         </div>
 
         {/* Copyright Notice */}

@@ -18,7 +18,7 @@ const HeroSection = () => {
             Explore Past Events
           </Link>
           <Link
-            to="/v3"
+            to="/event3"
             className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-blue-500 transition duration-300 transform hover:scale-105 inline-block"
           >
             Join V3

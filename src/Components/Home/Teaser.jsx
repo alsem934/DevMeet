@@ -10,7 +10,7 @@ const V3TeaserSection = () => {
   });
 
   useEffect(() => {
-    const targetDate = new Date(Date.now() + (7 * 24 * 60 * 60 * 1000)); // Set target date to 7 days from now
+    const targetDate = new Date(Date.now() + (12 * 24 * 60 * 60 * 1000)); // Set target date to 7 days from now
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
